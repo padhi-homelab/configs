@@ -1,0 +1,19 @@
+# Comments: use '#' for comment lines and ';' (following a space) for inline comments
+
+
+[DEFAULT]
+
+# "ignoreip" can be a list of IP addresses, CIDR masks or DNS hosts. Fail2ban
+# will not ban a host which matches an address in this list. Several addresses
+# can be defined using space (and/or comma) separator.
+ignoreip = 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 127.0.0.1/8 ::1 fd00::/8
+
+# "bantime" is the number of seconds that a host is banned.
+bantime  = 15m
+
+# A host is banned if it has generated "maxretry" during the last "findtime"
+# seconds.
+findtime = 10m
+
+# "maxretry" is the number of failures before a host get banned.
+maxretry = 5
