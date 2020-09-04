@@ -1,0 +1,2 @@
+@include common-auth
+@include u2f_requisite
