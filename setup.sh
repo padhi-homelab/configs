@@ -10,6 +10,7 @@ sudo bash install-packages.sh
 sudo bash install-docker.sh
 
 sudo bash copy-root-files.sh
+sudo bash setup-network.sh
 
 sudo bash register-u2f.sh
 sudo bash enable-u2f.sh
