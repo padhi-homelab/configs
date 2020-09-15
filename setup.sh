@@ -6,12 +6,16 @@ SELF_DIR="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
 cd "${SELF_DIR}"/setup.d
 
-for sudo_script in s*.sh ; do
-  echo -e "\n@ ${sudo_script}:"
-  sudo bash ${sudo_script}
-done
+if [ -z "$1" ] || [ "$1" == "root" ]; then
+  for root_script in r*.sh ; do
+    echo -e "\n@ ${root_script}:"
+    sudo bash "${root_script}"
+  done
+fi
 
-for user_script in s*.sh ; do
-  echo -e "\n@ ${user_script}:"
-  sudo bash ${user_script}
-done
+if [ -z "$1" ] || [ "$1" == "user" ]; then
+  for user_script in u*.sh ; do
+    echo -e "\n@ ${user_script}:"
+    sudo -iu user bash "$(pwd)/${user_script}"
+  done
+fi

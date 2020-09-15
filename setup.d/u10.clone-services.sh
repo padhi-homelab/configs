@@ -2,7 +2,6 @@
 
 set -Eeumo pipefail
 
-sudo -i -u user bash << EOF
 whoami
 cd ~
 git clone --no-checkout \
@@ -20,8 +19,6 @@ else
     git checkout master
     git pull
 fi
-EOF
 
-# Test docker and docker-compose
 docker version
 docker-compose version
