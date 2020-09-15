@@ -19,7 +19,7 @@ EOF
 echo 'sshd: ALL' > /etc/hosts.deny
 
 cat <<EOF >> /etc/hosts.allow
-sshd : 10.7.3.0/24
+sshd : 10.0.0.0/8
 sshd : 127.0.0.1
 sshd : [::1]
 EOF

@@ -6,15 +6,12 @@ SELF_DIR="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
 cd "${SELF_DIR}"/setup.d
 
-sudo bash install-packages.sh
-sudo bash install-docker.sh
+for sudo_script in s*.sh ; do
+  echo -e "\n@ ${sudo_script}:"
+  sudo bash ${sudo_script}
+done
 
-sudo bash copy-root-files.sh
-sudo bash setup-network.sh
-
-sudo bash register-u2f.sh
-sudo bash enable-u2f.sh
-
-sudo bash secure-ssh.sh
-
-clone-services.sh
+for user_script in s*.sh ; do
+  echo -e "\n@ ${user_script}:"
+  sudo bash ${user_script}
+done

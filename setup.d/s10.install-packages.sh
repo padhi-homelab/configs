@@ -6,6 +6,7 @@ apt update -yq
 apt dist-upgrade -yq
 apt install -yq \
     apt-transport-https \
+    armbian-config \
     ca-certificates \
     curl \
     fail2ban \

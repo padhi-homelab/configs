@@ -14,8 +14,9 @@ if ! command -v git sparse-checkout &> /dev/null ; then
     git sparse-checkout add service.sh LICENSE
 else
     git config core.sparsecheckout true
-    echo LICENSE >> .git/info/sparse-checkout
-    echo service.sh >> .git/info/sparse-checkout
+    echo "LICENSE" >> .git/info/sparse-checkout
+    echo "service.sh" >> .git/info/sparse-checkout
+    echo "netdata/*" >> .git/info/sparse-checkout
     git checkout master
     git pull
 fi
