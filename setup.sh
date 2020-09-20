@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Eeumo pipefail
+set -Eemo pipefail
 
 SELF_DIR="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
