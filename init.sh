@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Eeumo pipefail
+set -Eemo pipefail
 
 apt update -yq
 apt install -yq git
