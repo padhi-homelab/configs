@@ -4,6 +4,12 @@ Config files for various native (non-dockerized) services
 
 ### Usage
 
+Run as root:
+
 ```
-curl -fL http://padhi-homelab.github.io/configs/init.sh | bash
+apt update -yq ; apt install -yq git
+git clone https://github.com/padhi-homelab/configs.git /opt/configs
+cd /opt/configs ; ./setup.sh --help
 ```
+
+Check the options and then run `./setup.sh` with the desired ones.

@@ -27,6 +27,7 @@ apt install -yq \
  || true 1                     # Some weird error during installation
 
 docker run hello-world
+docker system prune --all --force
 
 groupadd docker || true
 usermod -aG docker user

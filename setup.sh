@@ -10,9 +10,9 @@ usage() {
 Usage: $0 [flag]...
 
 Flags:
-  [--no-armhf, -a]  Remove armhf support (on board that support armhf + arm64)
-  [--user, -u]      Only run user setup scripts
-  [--root, -r]      Only run root setup scripts
+  [--no-armhf, -a]      Remove armhf support (on board that support armhf + arm64)
+  [--root-scripts, -r]  Only run root setup scripts
+  [--user-scripts, -u]  Only run user setup scripts
 " >&2 ; exit $EXIT_CODE_USAGE_ERROR
 }
 
@@ -24,14 +24,14 @@ USER_SCRIPTS="yes"
 for opt in "$@"; do
   shift
   case "$opt" in
-    "--no-armhf") set -- "$@" "-a" ;;
+    "--no-armhf")     set -- "$@" "-a" ;;
 
-    "--root")     set -- "$@" "-r" ;;
-    "--user")     set -- "$@" "-u" ;;
+    "--root-scripts") set -- "$@" "-r" ;;
+    "--user-scripts") set -- "$@" "-u" ;;
 
-    "--")         set -- "$@" "--" ;;
-    "--"*)        usage "Unrecognized option: $opt." ;;
-    *)            set -- "$@" "$opt"
+    "--")             set -- "$@" "--" ;;
+    "--"*)            usage "Unrecognized option: $opt." ;;
+    *)                set -- "$@" "$opt"
   esac
 done
 

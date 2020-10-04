@@ -9,8 +9,19 @@ if [ "$NO_ARMHF" == "yes" ]; then
   dpkg --remove-architecture armhf
 fi
 
+apt purge -yq \
+    chrony \
+    ntp \
+    *btrfs* \
+    *wireless* \
+    *wireguard*
+apt autoremove -yq --purge
+
 apt update -yq
+
 apt dist-upgrade -yq
+apt autoremove -yq --purge
+
 apt install -yq \
     apt-transport-https \
     armbian-config \
@@ -24,6 +35,6 @@ apt install -yq \
     pamu2fcfg \
     rsync \
     software-properties-common \
+    smartmontools \
     vim
 apt autoclean -yq
-apt autoremove -yq --purge

@@ -1,0 +1,10 @@
+/var/lib/smartd/*.csv {
+    monthly
+    rotate 12
+    missingok
+    notifempty
+    sharedscripts
+    postrotate
+        killall -HUP smartd
+    endscript
+}
