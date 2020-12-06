@@ -31,6 +31,7 @@ apt install -yq \
     gnupg-agent \
     libpam-oath \
     libpam-u2f \
+    nfs-common \
     oathtool \
     pamu2fcfg \
     rsync \

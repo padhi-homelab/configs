@@ -16,10 +16,17 @@ echo "DEVICESCAN -a -d ata -d removable -d sat -d scsi -n standby -m root -M exe
 SMARTMONTOOLS_CONFIG="/etc/default/smartmontools"
 backup "${SMARTMONTOOLS_CONFIG}"
 
-sed -i 's/^#\{0,1\}start_smartd=.*$/start_smartd=yes/g ; t ; q10' "${SMARTMONTOOLS_CONFIG}" \
-  || echo "PermitRootLogin no" >> "${SMARTMONTOOLS_CONFIG}"
-sed -i 's/^#\{0,1\}smartd_opts=.*$/smartd_opts=" --interval=300 --quit=never "/g ; t ; q10' "${SMARTMONTOOLS_CONFIG}" \
-  || echo "smartd_opts=\" --interval=300 --quit=never \"" >> "${SMARTMONTOOLS_CONFIG}"
+replace_or_add "^#\{0,1\}start_smartd=.*$" \
+               "start_smartd=yes" \
+               "$SMARTMONTOOLS_CONFIG"
+replace_or_add "^#\{0,1\}smartd_opts=.*$" \
+               "smartd_opts=\" --interval=300 --quit=never \"" \
+               "$SMARTMONTOOLS_CONFIG"
+
+sed -i 's///g ; t ; q10' "${SMARTMONTOOLS_CONFIG}" \
+  || echo "start_smartd=yes" >> "${SMARTMONTOOLS_CONFIG}"
+sed -i 's///g ; t ; q10' "${SMARTMONTOOLS_CONFIG}" \
+  || echo "" >> "${SMARTMONTOOLS_CONFIG}"
 
 systemctl restart smartd
 systemctl restart smartmontools
