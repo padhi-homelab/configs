@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function backup () {
   if [ -f "$1.orig" ]; then
     cp "$1.orig" "$1"

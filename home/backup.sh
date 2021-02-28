@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+TIME="$(date +%Y%m%d%H%M%S)"
+FILENAME=$TIME.tar
+
+SRCS="/home/user/services /home/user/.config/systemd /home/user/backup.sh"
+
+tar --exclude-vcs -cf "$HOME/$FILENAME" $SRCS
+
 DESTDIR=/backup
 cd "$DESTDIR"
 
@@ -9,9 +16,4 @@ do
   rm "$i"
 done
 
-TIME="$(date +%Y%m%d%H%M%S)"
-FILENAME=$TIME.tar
-
-SRCDIR="/home/user/services /home/user/.config/systemd /home/user/backup.sh"
-
-tar cvf "$DESTDIR/$FILENAME" $SRCDIR
+mv "$HOME/$FILENAME" .
