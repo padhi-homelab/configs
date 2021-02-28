@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup every 30 minutes
+
+[Timer]
+OnBootSec=15min
+AccuracySec=10min
+OnCalendar=*:0/30
+
+[Install]
+WantedBy=timers.target

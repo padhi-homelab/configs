@@ -5,8 +5,8 @@ set -Eeumox pipefail
 for i in "$@" ; do [[ $i == "-a" ]] && NO_ARMHF="yes" && break ; done
 
 if [ "$NO_ARMHF" == "yes" ]; then
-  apt-get purge ".*:armhf"
-  dpkg --remove-architecture armhf
+  apt-get purge ".*:armhf" >/dev/null 2>&1
+  dpkg --remove-architecture armhf >/dev/null 2>&1
 fi
 
 apt purge -yq \
@@ -14,7 +14,8 @@ apt purge -yq \
     ntp \
     *btrfs* \
     *wireless* \
-    *wireguard*
+    *wireguard* \
+    unattended-upgrades
 apt autoremove -yq --purge
 
 apt update -yq

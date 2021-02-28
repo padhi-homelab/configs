@@ -1,0 +1,6 @@
+[Unit]
+Description=Back up
+
+[Service]
+Type=oneshot
+ExecStart=/home/user/backup.sh

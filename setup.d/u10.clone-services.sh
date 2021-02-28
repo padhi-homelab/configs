@@ -3,14 +3,14 @@
 set -Eeumo pipefail
 
 whoami
-cd ~
+cd $HOME
 git clone --no-checkout \
     https://github.com/padhi-homelab/services.git
 cd services
 
 if ! command -v git sparse-checkout &> /dev/null ; then
     git sparse-checkout init --cone
-    git sparse-checkout add service.sh LICENSE
+    git sparse-checkout add "LICENSE" "service.sh" "netdata/*"
 else
     git config core.sparsecheckout true
     echo "LICENSE" >> .git/info/sparse-checkout

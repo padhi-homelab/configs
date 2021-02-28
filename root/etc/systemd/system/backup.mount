@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount NFS share for backup
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=storage.local:/mnt/sys/BACKUP/%H
+Where=/backup
+Options=auto
+Type=nfs
+TimeoutSec=5
