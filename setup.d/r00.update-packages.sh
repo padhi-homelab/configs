@@ -19,9 +19,7 @@ apt purge -yq \
 apt autoremove -yq --purge
 
 apt update -yq
-
 apt dist-upgrade -yq
-apt autoremove -yq --purge
 
 apt install -yq \
     apt-transport-https \
@@ -35,8 +33,11 @@ apt install -yq \
     nfs-common \
     oathtool \
     pamu2fcfg \
+    python3-pip \
     rsync \
     software-properties-common \
     smartmontools \
     vim
+
+apt autoremove -yq --purge
 apt autoclean -yq
