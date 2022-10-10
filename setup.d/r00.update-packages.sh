@@ -11,7 +11,6 @@ fi
 
 apt purge -yq \
     chrony \
-    ntp \
     *btrfs* \
     *wireless* \
     *wireguard* \
@@ -22,6 +21,8 @@ apt update -yq
 apt dist-upgrade -yq
 
 apt install -yq \
+    apt-listbugs \
+    apt-listchanges \
     apt-transport-https \
     armbian-config \
     ca-certificates \
@@ -37,6 +38,7 @@ apt install -yq \
     rsync \
     software-properties-common \
     smartmontools \
+    systemd-timesyncd \
     vim
 
 apt autoremove -yq --purge

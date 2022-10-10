@@ -2,7 +2,7 @@
 
 set -Eeumox pipefail
 
-timedatectl set-timezone America/New_York
+timedatectl set-timezone America/Los_Angeles
 timedatectl set-ntp yes
 
 systemctl restart systemd-timesyncd

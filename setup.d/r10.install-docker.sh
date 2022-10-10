@@ -33,8 +33,3 @@ groupadd docker || true
 usermod -aG docker user
 
 systemctl enable docker
-
-cd /usr/local/bin
-curl -L --fail --output docker-compose \
-     https://raw.githubusercontent.com/padhi-homelab/docker_compose/master/run.sh
-chmod 755 docker-compose

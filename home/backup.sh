@@ -11,7 +11,7 @@ tar --exclude-vcs -cf "$HOME/$FILENAME" "${SRCS[@]}"
 DESTDIR=/backup
 cd "$DESTDIR"
 
-MAX_BACKUPS_TO_KEEP=32
+MAX_BACKUPS_TO_KEEP=16
 ls -1tr "$DESTDIR/$PREFIX"*.tar | head -n -$MAX_BACKUPS_TO_KEEP | while read -r i
 do
   rm "$i"
