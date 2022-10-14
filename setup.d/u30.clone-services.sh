@@ -17,7 +17,9 @@ composition.sh
 *.default.*
 _scripts/*
 
+docker.sock/*
 netdata/*
+traefik/*
 EOF
 
 git checkout master
