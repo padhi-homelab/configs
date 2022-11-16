@@ -25,6 +25,7 @@ apt install -yq \
     apt-listchanges \
     apt-transport-https \
     armbian-config \
+    bsdmainutils \
     ca-certificates \
     curl \
     fail2ban \

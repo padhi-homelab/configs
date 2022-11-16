@@ -23,5 +23,4 @@ replace_or_add "^#\{0,1\}smartd_opts=.*$" \
                "smartd_opts=\" --interval=300 --quit=never \"" \
                "$SMARTMONTOOLS_CONFIG"
 
-systemctl restart smartd
 systemctl restart smartmontools

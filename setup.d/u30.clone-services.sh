@@ -14,7 +14,7 @@ LICENSE
 
 composition.sh
 
-*.default.*
+*.global.*
 _scripts/*
 
 docker.sock/*
