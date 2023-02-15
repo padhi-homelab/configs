@@ -21,6 +21,7 @@ apt update -yq
 apt dist-upgrade -yq
 
 apt install -yq \
+    apparmor-utils \
     apt-listbugs \
     apt-listchanges \
     apt-transport-https \
@@ -40,7 +41,8 @@ apt install -yq \
     software-properties-common \
     smartmontools \
     systemd-timesyncd \
-    vim
+    vim \
+    zstd
 
 apt autoremove -yq --purge
 apt autoclean -yq
