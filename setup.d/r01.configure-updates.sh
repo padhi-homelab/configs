@@ -15,3 +15,6 @@ replace_or_add "^\(\/\/\)\{0,1\}APT::Periodic::Unattended-Upgrade.*$" \
 replace_or_add "^\(\/\/\)\{0,1\}APT::Periodic::Update-Package-Lists.*$" \
                "APT::Periodic::Update-Package-Lists \"1\";" \
                "$ARMBIAN_UPDATES_CONFIG"
+replace_or_add "^\(\/\/\)\{0,1\}APT::Periodic::AutocleanInterval.*$" \
+               "APT::Periodic::AutocleanInterval \"30\";" \
+               "$ARMBIAN_UPDATES_CONFIG"

@@ -17,5 +17,3 @@ replace_or_add "^#\{0,1\}X11Forwarning.*$" \
                "$SSH_CONFIG"
 
 systemctl restart sshd
-
-echo 'PLEASE CONFIGURE 2FA FOR SSH!'

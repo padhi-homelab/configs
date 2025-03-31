@@ -9,7 +9,6 @@ source "${SELF_DIR}/functions.sh"
 mkdir /backup
 
 systemctl daemon-reload
-systemctl enable backup.automount
-systemctl start backup.automount
+systemctl enable --now backup.automount
 systemctl status backup.automount
 systemctl status backup.mount

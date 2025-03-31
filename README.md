@@ -1,6 +1,7 @@
 # configs
 
-Config files for various native (non-dockerized) services
+Config files for quickly setting up Armbian on an SBC,
+and various native (non-dockerized) services.
 
 ### Usage
 
@@ -12,4 +13,4 @@ git clone https://github.com/padhi-homelab/configs.git /opt/configs
 cd /opt/configs ; ./setup.sh --help
 ```
 
-Check the options and then run `./setup.sh` with the desired ones.
+Check the options and then run `./setup.sh` with the desired options.

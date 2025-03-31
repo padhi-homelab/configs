@@ -21,24 +21,18 @@ apt update -yq
 apt dist-upgrade -yq
 
 apt install -yq \
-    apparmor-utils \
     apt-listbugs \
     apt-listchanges \
     apt-transport-https \
     armbian-config \
     bsdmainutils \
+    byobu \
     ca-certificates \
     curl \
     fail2ban \
-    gnupg-agent \
-    libpam-oath \
-    libpam-u2f \
+    htop \
     nfs-common \
-    oathtool \
-    pamu2fcfg \
-    python3-pip \
     rsync \
-    software-properties-common \
     smartmontools \
     systemd-timesyncd \
     vim \

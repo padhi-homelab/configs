@@ -12,17 +12,21 @@ git config core.sparsecheckout true
 cat <<EOF >.git/info/sparse-checkout
 LICENSE
 
-composition.sh
+comp
 
 *.global.*
 _scripts/*
 
-docker.sock/*
-netdata/*
+beszel-agent/*
+docker_sock/*
 traefik/*
 EOF
 
 git checkout master
 git pull
 
-./composition.sh
+./comp p beszel-agent traefik
+
+mkdir -p $HOME/.docker/cli-plugins
+cp $HOME/services/.lib/compose \
+   $HOME/.docker/cli-plugins/docker-compose

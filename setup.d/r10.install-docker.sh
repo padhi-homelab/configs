@@ -6,25 +6,30 @@ apt purge -yq \
     containerd \
     docker \
     docker.io \
+    docker-doc \
+    docker-compose \
     docker-engine \
+    podman-docker \
     runc \
   || true
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-apt-key fingerprint 0EBFCD88
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
 
-add-apt-repository \
-    "deb [arch=arm64]
-    https://download.docker.com/linux/debian \
-    $(lsb_release -cs)
-    stable"
+cat <<EOF | tee /etc/apt/sources.list.d/docker.sources
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(lsb_release -cs)
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
 
 apt update -yq
 apt install -yq \
     docker-ce \
     docker-ce-cli \
-    containerd.io \
- || true 1                     # Some weird error during installation
+    containerd.io
 
 docker run hello-world
 docker system prune --all --force

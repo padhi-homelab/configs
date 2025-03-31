@@ -8,5 +8,5 @@ cd "${SELF_DIR}"/../root
 
 rsync -avhu --progress . /
 
-chown -R root /etc/pam.d /etc/fail2ban/jail.local
-chmod 600 /etc/pam.d/* /etc/fail2ban/jail.local
+chown -R root /etc/fail2ban/jail.local
+chmod 600 /etc/fail2ban/jail.local
